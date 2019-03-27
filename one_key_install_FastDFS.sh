@@ -21,7 +21,9 @@ fi
 
 cd ${software_path}
 # 下载软件包
-git clone https://gitee.com/crazyjim/FastDFS_dependency_software.git ${software_path}
+#git clone https://gitee.com/crazyjim/FastDFS_dependency_software.git ${software_path}
+wget https://github.com/happyfish100/libfastcommon/archive/V1.0.39.tar.gz
+wget https://github.com/happyfish100/fastdfs/archive/V5.11.tar.gz
 
 # 获取本机IP
 local_ip=`/sbin/ifconfig -a|grep inet|grep -v 127.0.0.1|grep -v inet6|awk '{print $2}'|tr -d "addr:"`
@@ -35,10 +37,10 @@ yum install -y gcc-c++
 
 # ----------------安装libfastcommon start----------------
 # 解压libfastcommon-master.zip
-unzip libfastcommon-master.zip
+unzip  V1.0.39.tar.gz
 
 # 编译libfastcommon
-cd libfastcommon-master
+cd libfastcommon-1.0.39
 ./make.sh || exit 1
 
 # 安装
@@ -54,10 +56,10 @@ ln -s /usr/lib64/libfdfsclient.so /usr/lib/libfdfsclient.so
 # ----------------安装FastDFS start----------------
 # 解压FastDFS安装包
 cd ..
-tar -zxvf FastDFS_v5.05.tar.gz
+tar -zxvf  V5.11.tar.gz
 
 # 编译
-cd FastDFS/
+cd fastdfs-5.11/
 ./make.sh || exit 1
 
 #安装
