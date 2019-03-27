@@ -41,10 +41,8 @@ unzip  V1.0.39.tar.gz
 
 # 编译libfastcommon
 cd libfastcommon-1.0.39
-./make.sh || exit 1
+./make.sh && ./make.sh install
 
-# 安装
-./make.sh install || exit 1
 
 # 创建软链接
 ln -s /usr/lib64/libfastcommon.so /usr/local/lib/libfastcommon.so
@@ -60,10 +58,8 @@ tar -zxvf  V5.11.tar.gz
 
 # 编译
 cd fastdfs-5.11/
-./make.sh || exit 1
+./make.sh && ./make.sh  install
 
-#安装
-./make.sh install || exit 1
 # ----------------安装FastDFS end----------------
 
 # ----------------配置Tracker服务 start----------------
